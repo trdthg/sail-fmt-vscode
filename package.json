@@ -1,23 +1,45 @@
 {
   "name": "sail-fmt",
   "displayName": "sail-fmt",
-  "description": "",
+  "description": "Sail Language formatter, based on `sail -fmt` command",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.100.0"
   },
   "categories": [
-    "Other"
+    "Formatters"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
+    "commands": [],
+    "languages": [
       {
-        "command": "sail-fmt.helloWorld",
-        "title": "Hello World"
+        "id": "sail",
+        "aliases": [
+          "Sail"
+        ],
+        "extensions": [
+          ".sail"
+        ],
+        "configuration": "./language-configuration.json"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Sail Formatter Configuration",
+      "properties": {
+        "sailFormatter.path": {
+          "type": "string",
+          "default": "sail",
+          "description": "Path to the 'sail' executable. Set this if 'sail' is not in your system's PATH."
+        },
+        "sailFormatter.sail_config": {
+          "type": "string",
+          "default": "",
+          "description": "Optional: Path to the Sail configuration file path (--sail_config). If left empty, it will be current working directory."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
@@ -37,5 +59,6 @@
     "typescript": "^5.8.3",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.5.2"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
