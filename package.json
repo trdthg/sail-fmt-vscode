@@ -3,6 +3,7 @@
   "displayName": "sail-fmt",
   "description": "Sail Language formatter, based on `sail -fmt` command",
   "repository": "https://github.com/trdthg/sail-fmt-vscode",
+  "publisher": "trdthg",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.100.0"
